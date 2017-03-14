@@ -1,0 +1,68 @@
+html
+  head
+    title= 'Rally Bayer - Plantebem'
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+  body
+    nav.navbar.navbar-inverse
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href='/home') Webapp
+          ul.nav.navbar-nav
+            li 
+              a(href='/vendas') Vendas
+            li( class='active') 
+              a(href='/produtos') Produtos
+
+          
+        ul.nav.navbar-nav.navbar-right
+          li 
+            h4 #{user.cpf}
+          li
+            a(href='/signout')
+              span(class='glyphicon glyphicon-log-out' class="glyphicon glyphicon-log-out")
+              =' Sair'
+    div(class='row')
+        div(class='col-sm-1')
+        div(class='col-sm-10')
+          div(class='panel panel-default')
+            div(class='panel-heading')
+              button(type='button', class='btn btn-default', href='#AddProdModal', data-toggle='modal' , data-target='#AddProdModal') Novo
+              div.modal.fade#AddProdModal
+                div.modal-dialog
+                  div.modal-content
+                    div.modal-header
+                      button.close(type='button', data-dismiss='modal', aria-hidden='true')='X'
+                      h4.modal-title Cadastro de Novo Produto
+                    div.modal-body
+                      form(class='form-signin', action='/produtos/add', method='GET')
+                        div.form-group
+                          label(for='codigo') Código
+                          input(class='form-control', name='code', placeholder='Insira o Código', type='number')
+                          div.form-group
+                            label(for='descricao') Descrição
+                            input(class='form-control', name='name', placeholder='Insira a Descrição do Produto', type='text')
+                          div.form-group
+                            label(for='classe') Classe
+                            input(class='form-control', name='class', placeholder='Insira a classe do produto. Ex.: Fungicida', type='text')
+                          div.form-group
+                            label(for='pontos') Pontos
+                            input(class='form-control', name='points', placeholder='Insira o número de pontos', type='number')
+                          div.modal-footer
+                            input(class='btn btn-primary', type='submit', value='Adicionar')
+            div(class='panel-body')
+              h3 Lista de Produtos Cadastrados:
+                - each prod in produto
+                  
+                  div(class='panel panel-default')
+                    div(class='panel-heading')
+                      h4 
+                        = prod.nome
+                        t 
+                          = prod.codigo
+                          = prod.classe
+                          = prod.pontos
+        div(class='col-sm-1')

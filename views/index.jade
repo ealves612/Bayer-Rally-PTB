@@ -1,0 +1,60 @@
+html
+  head
+    title= 'Rally Bayer - Plantebem'
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+  body
+    nav.navbar.navbar-inverse
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href='/home') Webapp
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#signUpModal', data-toggle='modal' , data-target='#signUpModal')
+              span.glyphicon.glyphicon-user
+              =' Registrar-se'
+            div.modal.fade#signUpModal
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true')='X'
+                    h4.modal-title Cadastro de Novo Usuário
+                  div.modal-body
+                    form(class='form-signin', action='/signup', method='POST')
+                        div.form-group
+                          label(for='CPF') CPF
+                          input(class='form-control', name='cpf', placeholder='Insira o CPF', type='text')
+                        div.form-group
+                          label(for='FullName') Nome Completo
+                          input(class='form-control', name='fullname', placeholder='Insira o Nome Completo', type='text')
+                        div.form-group
+                          label(for='Email') Email
+                          input(class='form-control', name='email', placeholder='Insira Email', type='email')
+                        div.form-group
+                          label(for='Password') Senha
+                          input(class='form-control', name='password', placeholder='Insira a Senha', type='password')               
+                        div.modal-footer
+                          input(class='btn btn-primary', type='submit', value='Registrar')
+          li
+            a(href='#loginModal', data-toggle='modal' , data-target='#loginModal')
+              span.glyphicon.glyphicon-log-in
+              =' Entrar'
+            div.modal.fade#loginModal
+              div.modal-dialog
+                div.modal-content
+                  div.modal-header
+                    button.close(type='button', data-dismiss='modal', aria-hidden='true')='X'
+                    h4.modal-title Login
+                  div.modal-body
+                    form(class='form-signin', action='/login', method='POST')
+                      div.form-group
+                        label(for='CPF') CPF
+                        input.form-control(name='cpf', placeholder='Insira o CPF', type='text')
+                        div.form-group
+                          label(for='Password') Senha
+                          input.form-control(name='password', placeholder='Insira a Senha', type='password')
+                        div.modal-footer
+                          input.btn.btn-primary(type='submit', value='Entrar')

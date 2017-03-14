@@ -1,0 +1,26 @@
+html
+  head
+    title= 'Rally Bayer - Plantebem'
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+
+  body
+    nav.navbar.navbar-inverse
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href='/home') Webapp
+          ul.nav.navbar-nav
+            li( class='active') 
+              a(href='/vendas') Vendas
+            li 
+              a(href='/produtos') Produtos
+          
+        ul.nav.navbar-nav.navbar-right
+          li 
+            h4 #{user.cpf}
+          li
+            a(href='/signout')
+              span(class='glyphicon glyphicon-log-out' class="glyphicon glyphicon-log-out")
+              =' Sair'

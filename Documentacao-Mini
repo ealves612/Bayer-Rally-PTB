@@ -1,0 +1,26 @@
+Aqui vou colocar os nomes das variáveis que estou listando por view
+
+\login
+para logar, deve me passar os parametros por POST
+CPF   -> cpf
+Senha -> password
+
+Retorna uma mensagem de erro
+
+variavel = message
+códigos:
+101 -> usuário não existe
+102 -> senha incorreta
+
+\signup
+Método POST
+dados:
+cpf
+password
+email
+fullname
+
+retorno:
+variavel = message
+201 -> Usuário já existe
+202 -> Cadastrado com Sucesso
